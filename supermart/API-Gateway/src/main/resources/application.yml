@@ -1,0 +1,52 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: discovery-server
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - SetPath=/
+        
+        - id: discovery-server-static
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/**
+
+        - id: user-management
+          uri: lb://user-management
+          predicates:
+              - Path=/api/user/**
+
+        - id: inventory-management
+          uri: lb://inventory-management
+          predicates:
+            - Path=/api/inventory/**
+
+        - id: order-management
+          uri: lb://order-management
+          predicates:
+            - Path=/api/order/**
+        - id: delivery-management
+          uri: lb://delivery-management
+          predicates:
+            - Path=/api/delivery/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8180/realms/SuperMart
+
+logging:
+  level:
+    root: info
+    org.springframework.cloud.gateway.route.RouteDefinitionLocator: info
+    org.springframework.cloud.gateway: trace
