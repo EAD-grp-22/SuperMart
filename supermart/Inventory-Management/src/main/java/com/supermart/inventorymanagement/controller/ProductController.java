@@ -5,7 +5,6 @@ import com.supermart.inventorymanagement.dto.CreateProductRequest;
 import com.supermart.inventorymanagement.dto.ProductResponse;
 import com.supermart.inventorymanagement.dto.UpdateProductRequest;
 import com.supermart.inventorymanagement.service.ProductService;
-import com.supermart.inventorymanagement.model.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

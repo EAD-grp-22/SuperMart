@@ -22,8 +22,8 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private Integer id;
     private String email;
-    private String hashedPassword;
-    @Enumerated
+    private String password;
+    @Enumerated(EnumType.STRING)
     private Role role;
 
 
@@ -34,7 +34,7 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return hashedPassword;
+        return password;
     }
 
     @Override

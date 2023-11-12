@@ -48,10 +48,6 @@ public class UserController {
         return userService.registerUser(registerUserRequest);
     }
 
-    @PatchMapping("/update/password")
-    public String updatePassword(@RequestBody UpdatePasswordRequest updatePasswordRequest){
-        return userService.updatePassword(updatePasswordRequest);
-    }
 
     @PatchMapping("/update/user-name")
     public String updateUsername(@RequestBody UpdateUsernameRequest updateUsernameRequest){
@@ -67,7 +63,5 @@ public class UserController {
     public String removeUser(@PathVariable("id") Integer userId){
         return userService.removeUser(userId);
     }
-
-
-
+    
 }

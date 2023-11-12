@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class InitiateDeliveryRequest {
     private String orderNumber;
     private String shippingAddress;
+
 }

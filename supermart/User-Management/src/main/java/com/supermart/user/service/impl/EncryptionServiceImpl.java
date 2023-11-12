@@ -1,6 +1,6 @@
-package com.supermart.auth.service.impl;
+package com.supermart.user.service.impl;
 
-import com.supermart.auth.service.EncryptionService;
+import com.supermart.user.service.EncryptionService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCrypt;

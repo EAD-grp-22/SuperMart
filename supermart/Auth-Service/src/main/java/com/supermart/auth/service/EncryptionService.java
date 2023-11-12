@@ -1,7 +1,7 @@
 package com.supermart.auth.service;
 
 public interface EncryptionService {
-    public void postConstructor();
-    public String encryptPassword(String password);
-    public boolean verifyPassword(String password, String hash);
+     void postConstructor();
+     String encryptPassword(String password);
+     boolean verifyPassword(String password, String hash);
 }

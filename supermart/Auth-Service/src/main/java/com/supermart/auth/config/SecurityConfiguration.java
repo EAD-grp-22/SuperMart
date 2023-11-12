@@ -31,9 +31,9 @@ public class SecurityConfiguration {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request->request.requestMatchers("/api/auth/**")
                         .permitAll()
-                        .requestMatchers("api/inventory-manager").hasAnyAuthority(Role.INVENTORY_MANAGER.name())
-                        .requestMatchers("api/customer").hasAnyAuthority(Role.CUSTOMER.name())
-                        .requestMatchers("api/delivery-driver").hasAnyAuthority(Role.DELIVERY_DRIVER.name())
+                        .requestMatchers("/api/inventory-manager").hasAnyAuthority(Role.INVENTORY_MANAGER.name())
+                        .requestMatchers("/api/customer").hasAnyAuthority(Role.CUSTOMER.name())
+                        .requestMatchers("/api/delivery-driver").hasAnyAuthority(Role.DELIVERY_DRIVER.name())
                         .anyRequest().authenticated())
                 .sessionManagement(manager->manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(

@@ -35,10 +35,20 @@ spring:
           uri: lb://order-management
           predicates:
             - Path=/api/order/**
+
         - id: delivery-management
           uri: lb://delivery-management
           predicates:
             - Path=/api/delivery/**
+
+        - id: auth-management
+          uri: lb://auth-management
+          predicates:
+            - Path=/api/auth/**
+
+
+
+
   security:
     oauth2:
       resourceserver:
